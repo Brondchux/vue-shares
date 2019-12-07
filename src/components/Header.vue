@@ -13,7 +13,7 @@
             </ul>
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link" @click="endDay" style="cursor: pointer">End Day</a>
+                    <a class="nav-link" style="cursor: pointer">End Day</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a 
@@ -31,7 +31,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><b>Funds: {{ funds | currency }}</b></a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><b>Funds</b></a>
                 </li>
             </ul>
         </div>
