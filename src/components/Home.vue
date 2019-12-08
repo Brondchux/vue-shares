@@ -6,7 +6,7 @@
                 <p>You may Save &amp; Load your Data</p>
                 <p>Click on 'End Day' to begin a new day</p>
                 <hr class="my-4">
-                <h4>Your Funds is {{ funds }}</h4>
+                <h4>Your Funds is {{ funds | currency }}</h4>
                 <router-link to='/stocks'>
                     <button class="btn btn-info btn-lg mt-3">Start Trading</button>
                 </router-link>

@@ -13,21 +13,32 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">?</span>
                             </div>
-                            <input type="text" class="form-control" v-model="quantity" placeholder="Quantity">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                v-model="quantity" 
+                                :class="{danger: insufficientQuantity}"
+                                placeholder="Quantity">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <button 
                             class="btn btn-info float-right" 
                             @click="sellStock" 
-                            :disabled="quantity <= 0">
-                        Sell</button>
+                            :disabled="insufficientQuantity || quantity <= 0">
+                        {{ insufficientQuantity ? 'Low Qty' : 'Sell' }}</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<style scoped>
+    .danger {
+        border: 3px solid red;
+    }
+</style>
 
 <script>
 export default {
@@ -37,6 +48,11 @@ export default {
         }
     },
     props: ['stock'],
+    computed: {
+        insufficientQuantity(){
+            return this.quantity > this.stock.quantity
+        }
+    },
     methods: {
         sellStock() {
             const order = {
